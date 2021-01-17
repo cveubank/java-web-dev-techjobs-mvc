@@ -2,17 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
 </head>
-<body>
+<table class="container">
 
-<div th:replace="fragments :: page-header"></div>
+<header th:replace="fragments :: page-header"></header>
 
 <div class="container body-content">
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Employer</th>
+        <th>Location</th>
+        <th>Position Type</th>
+        <th>Skill</th>
+    </tr>
+    </thead>
 
-    <!-- TODO #1 - Use a loop to display job results in a table. -->
-
+    <tr th:each="job : ${jobs}">
+        <td th:text="${job.id}"></td>
+        <td th:text="${job.employer}"></td>
+        <td th:text="${job.location}"></td>
+        <td th:text="${job.positionType}"></td>
+        <td th:text="${job.coreCompetency}"></td>
+    </tr>
 </div>
-
-</body>
+</table>
 </html>
