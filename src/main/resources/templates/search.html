@@ -12,7 +12,6 @@
 
     <form th:action="@{/search/results}" method = "post">
         <h2>Search by:</h2>
-
         <p>
             <span th:each="column : ${columns}">
                 <input
@@ -38,9 +37,27 @@
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
-<!--    <div th:replace = "fragments :: jobInfoLoop"></th:replace>-->
+    <table class="container">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Employer</th>
+        <th>Location</th>
+        <th>Position Type</th>
+        <th>Skill</th>
+    </tr>
+    </thead>
+
+    <tr th:each="job : ${jobs}">
+        <td th:text="${job.id}"></td>
+        <td th:text="${job.employer}"></td>
+        <td th:text="${job.location}"></td>
+        <td th:text="${job.positionType}"></td>
+        <td th:text="${job.coreCompetency}"></td>
+    </tr>
+    </table>
+
 
 </div>
-
 </body>
 </html>
