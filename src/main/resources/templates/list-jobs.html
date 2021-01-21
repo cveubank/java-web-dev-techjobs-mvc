@@ -2,30 +2,70 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
 </head>
-<table class="container">
 
 <header th:replace="fragments :: page-header"></header>
 
 <div class="container body-content">
 
         <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Employer</th>
-        <th>Location</th>
-        <th>Position Type</th>
-        <th>Skill</th>
-    </tr>
-    </thead>
 
-    <tr th:each="job : ${jobs}">
-        <td th:text="${job.id}"></td>
-        <td th:text="${job.employer}"></td>
-        <td th:text="${job.location}"></td>
-        <td th:text="${job.positionType}"></td>
-        <td th:text="${job.coreCompetency}"></td>
-    </tr>
+    <th:block>
+        <table class="job-listing" th:each="job : ${jobs}">
+            <thead>
+
+                <tr>
+                    <th>ID: </th>
+                    <td th:text = "${job.id}"></td>
+                </tr>
+
+                <tr>
+                    <th>Name: </th>
+                    <td th:text = "${job.name}"></td>
+                </tr>
+
+                <tr>
+                    <th>Employer: </th>
+                    <td th:text = "${job.employer}"></td>
+                </tr>
+
+                <tr>
+                    <th>Location: </th>
+                    <td th:text = "${job.location}"></td>
+                </tr>
+
+                <tr>
+                    <th>Position Type: </th>
+                    <td th:text = "${job.positionType}"></td>
+                </tr>
+
+                <tr>
+                    <th>Skill: </th>
+                    <td th:text = "${job.coreCompetency}"></td>
+                </tr>
+            </thead>
+        </table>
+    </th:block>
+    </table>
 </div>
-</table>
 </html>
+<!--                    -->
+<!--                    -->
+<!--                    <th>ID</th>-->
+<!--                    <th>Name</th>-->
+<!--                    <th>Employer</th>-->
+<!--                    <th>Location</th>-->
+<!--                    <th>Position Type</th>-->
+<!--                    <th>Skill</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--       -->
+<!--                    <td th:text="${job.id}"></td>-->
+<!--                    <td th:text="${job.name}"></td>-->
+<!--                    <td th:text="${job.employer}"></td>-->
+<!--                    <td th:text="${job.location}"></td>-->
+<!--                    <td th:text="${job.positionType}"></td>-->
+<!--                    <td th:text="${job.coreCompetency}"></td>-->
+<!--                </tr>-->
+
+
+
